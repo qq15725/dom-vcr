@@ -12,6 +12,8 @@
   </a>
 </p>
 
+<p align="center">Generate video using HTML5 canvas and SVG. minzipped size 5kb.</p>
+
 ## Installation
 
 ### pnpm
@@ -41,4 +43,21 @@ setTimeout(async () => {
   const blob = await vcr.stop()
   window.open(URL.createObjectURL(blob))
 }, 5000)
+```
+
+### Manual frame addition
+
+```ts
+import { createDomVcr } from 'dom-vcr'
+
+const vcr = createDomVcr(document.querySelector('#app'))
+
+vcr.start()
+  .then(() => vcr.addFrame())
+  .then(() => vcr.addFrame())
+  .then(() => vcr.addFrame())
+  .then(() => vcr.stop())
+  .then(blob => {
+    window.open(URL.createObjectURL(blob))
+  })
 ```
