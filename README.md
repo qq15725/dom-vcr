@@ -61,3 +61,13 @@ vcr.start()
     window.open(URL.createObjectURL(blob))
   })
 ```
+
+### CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/dom-vcr/dist/index.js"></script>
+
+<script>
+  const { createDomVcr } = window['dom-vcr']
+</script>
+```
