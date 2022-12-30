@@ -20,7 +20,8 @@ export function createDomVcr<T extends Node>(node: T, options: Partial<Options> 
   let index = 0
   let blobs: Blob[] = []
   let timer: any
-  let looping = false
+  let starting = false
+  let stoped = false
   let {
     width = 0,
     height = 0,
@@ -46,7 +47,7 @@ export function createDomVcr<T extends Node>(node: T, options: Partial<Options> 
   }
 
   function mainLoop() {
-    if (!looping) return
+    if (stoped) return
     draw()
     requestAnimationFrame(mainLoop)
   }
@@ -58,7 +59,11 @@ export function createDomVcr<T extends Node>(node: T, options: Partial<Options> 
     if (recorder.state === 'recording') {
       recorder.pause()
       while (!frames[index]) {
+        if (!starting) return recorder.stop()
         await new Promise(resolve => setTimeout(resolve, 100))
+      }
+      if (!frames[index + 1] && !starting) {
+        return recorder.stop()
       }
       index++
       recorder.resume()
@@ -73,7 +78,8 @@ export function createDomVcr<T extends Node>(node: T, options: Partial<Options> 
     frames = []
     blobs = []
     await addFrame()
-    looping = true
+    starting = true
+    stoped = false
     mainLoop()
     recorder.start(spf)
     if (autoAddFrame) {
@@ -83,12 +89,13 @@ export function createDomVcr<T extends Node>(node: T, options: Partial<Options> 
 
   function stop() {
     return new Promise(resolve => {
+      starting = false
       recorder.onstop = () => {
-        looping = false
+        stoped = true
         clearInterval(timer)
         resolve(new Blob(blobs, { type: 'video/mp4' }))
       }
-      recorder.stop()
+      autoAddFrame && recorder.stop()
     })
   }
 

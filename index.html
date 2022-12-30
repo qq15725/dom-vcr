@@ -34,11 +34,21 @@
     const vcr = createDomVcr(document.querySelector('#app'))
 
     vcr.start()
-
     setTimeout(async () => {
       const blob = await vcr.stop()
       window.open(URL.createObjectURL(blob))
     }, 5000)
+
+    // const vcr = createDomVcr(document.querySelector('#app'), { autoAddFrame: false, fps: 1 })
+    //
+    // vcr.start()
+    //   .then(() => vcr.addFrame())
+    //   .then(() => vcr.addFrame())
+    //   .then(() => vcr.addFrame())
+    //   .then(() => vcr.stop())
+    //   .then(blob => {
+    //     window.open(URL.createObjectURL(blob))
+    //   })
   </script>
 </body>
 </html>

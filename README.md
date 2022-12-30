@@ -50,7 +50,7 @@ setTimeout(async () => {
 ```ts
 import { createDomVcr } from 'dom-vcr'
 
-const vcr = createDomVcr(document.querySelector('#app'))
+const vcr = createDomVcr(document.querySelector('#app'), { autoAddFrame: false, fps: 1 })
 
 vcr.start()
   .then(() => vcr.addFrame())
