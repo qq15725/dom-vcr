@@ -3,14 +3,42 @@
 <head>
   <meta charset="utf-8">
   <title>Playground</title>
+  <style>
+    @keyframes color
+    {
+      from {
+        background: red;
+      }
+
+      to {
+        background: yellow;
+      }
+    }
+
+    #app div {
+      animation: color 1s infinite;
+    }
+  </style>
 </head>
 <body>
-  <div>Playground</div>
+  <div id="app" style="width: 500px;">
+    <div>Playground Playground Playground Playground Playground</div>
+    <div>Playground Playground Playground Playground Playground</div>
+    <div>Playground Playground Playground Playground Playground</div>
+    <div>Playground Playground Playground Playground Playground</div>
+  </div>
 
   <script type="module">
-    import { one } from './src'
+    import { createDomVcr } from './src'
 
-    console.log(one)
+    const vcr = createDomVcr(document.querySelector('#app'))
+
+    vcr.start()
+
+    setTimeout(async () => {
+      const blob = await vcr.stop()
+      window.open(URL.createObjectURL(blob))
+    }, 5000)
   </script>
 </body>
 </html>

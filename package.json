@@ -1,20 +1,24 @@
 {
-  "name": "pkg-name",
+  "name": "dom-vcr",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@7.9.0",
   "description": "",
   "author": "wxm",
   "license": "MIT",
-  "homepage": "https://github.com/qq15725/pkg-name",
+  "homepage": "https://github.com/qq15725/dom-vcr",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qq15725/pkg-name.git"
+    "url": "git+https://github.com/qq15725/dom-vcr.git"
   },
   "bugs": {
-    "url": "https://github.com/qq15725/pkg-name/issues"
+    "url": "https://github.com/qq15725/dom-vcr/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "dom-to-mp4",
+    "dom-to-video",
+    "dom-vcr"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -53,5 +57,8 @@
     "typescript": "^4.9.4",
     "vite": "^4.0.3",
     "vitest": "^0.26.2"
+  },
+  "dependencies": {
+    "modern-screenshot": "^4.0.1"
   }
 }
