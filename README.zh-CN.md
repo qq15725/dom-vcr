@@ -12,19 +12,19 @@
   </a>
 </p>
 
-<p align="center">使用 HTML5 canvas 和 SVG 生成视频. gzip 5kb.</p>
+<p align="center">Generate video using HTML5 canvas and SVG. minzipped size 5kb.</p>
 
-<p align="center">English | <a href="README.zh-CN.md">简体中文</a></p>
+<p align="center"><a href="README.md">English</a> | 简体中文</p>
 
-## 📦 Install
+## 📦 安装
 
 ```shell
 npm i dom-vcr
 ```
 
-## 🦄 Usage
+## 🦄 使用
 
-### Basic
+### 基础
 
 ```ts
 import { createDomVcr } from 'dom-vcr'
@@ -39,7 +39,7 @@ setTimeout(async () => {
 }, 5000)
 ```
 
-### Manual frame addition
+### 手动添加帧
 
 ```ts
 import { createDomVcr } from 'dom-vcr'
