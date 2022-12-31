@@ -15,18 +15,16 @@
       }
     }
 
-    #app div {
+    #app {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
       animation: color 1s infinite;
     }
   </style>
 </head>
 <body>
-  <div id="app" style="width: 500px;">
-    <div>Playground Playground Playground Playground Playground</div>
-    <div>Playground Playground Playground Playground Playground</div>
-    <div>Playground Playground Playground Playground Playground</div>
-    <div>Playground Playground Playground Playground Playground</div>
-  </div>
+  <div id="app"></div>
 
   <script type="module">
     import { createDomVcr } from './src'
