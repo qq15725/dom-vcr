@@ -1,1 +1,2 @@
-export * from './dom-vcr'
+export * from './vcr'
+export * from './types'

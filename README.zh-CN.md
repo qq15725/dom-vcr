@@ -12,7 +12,7 @@
   </a>
 </p>
 
-<p align="center">使用 HTML5 canvas 和 SVG 生成 mp4/gif. gzip 5kb.</p>
+<p align="center">使用 HTML5 canvas 和 SVG 生成 MP4 / GIF</p>
 
 <p align="center"><a href="README.md">English</a> | 简体中文</p>
 
@@ -24,14 +24,29 @@ npm i dom-vcr
 
 ## 🦄 使用
 
+### 基本使用
+
+```ts
+import { createVcr } from 'dom-vcr'
+
+const dom = document.querySelector('#app')
+const vcr = createVcr(dom)
+
+vcr.record(2000)
+  .then(() => vcr.render())
+  .then(blob => {
+    window.open(URL.createObjectURL(blob))
+  })
+```
+
 ### 生成 MP4
 
 ```ts
-import { createDomVcr } from 'dom-vcr'
+import { createVcr } from 'dom-vcr'
 
 const dom = document.querySelector('#app')
-const vcr = createDomVcr(dom, {
-  fps: 2,
+const vcr = createVcr(dom, {
+  interval: 1000,
 })
 
 async function generate() {
@@ -54,12 +69,12 @@ generate()
 > 需要安装 `gif.js`
 
 ```ts
-import { createDomVcr } from 'dom-vcr'
+import { createVcr } from 'dom-vcr'
 import GIF from 'gif.js'
 
 const dom = document.querySelector('#app')
-const vcr = createDomVcr(dom, {
-  fps: 2,
+const vcr = createVcr(dom, {
+  interval: 1000,
   gif: new GIF({
     workerScript: './node_modules/gif.js/dist/gif.worker.js',
   }),

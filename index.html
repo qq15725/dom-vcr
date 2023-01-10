@@ -4,6 +4,21 @@
   <meta charset="utf-8">
   <title>Playground</title>
   <style>
+    @keyframes color
+    {
+      from {
+        background: red;
+      }
+
+      to {
+        background: yellow;
+      }
+    }
+
+    .animation {
+      animation: color 1s infinite;
+    }
+
     #app {
       width: 200px;
       height: 200px;
@@ -14,25 +29,28 @@
 <body>
   <div id="app"></div>
 
-  <button style="margin-top: 14px;">Generate</button>
+  <button style="margin-top: 14px;" id="generate">Generate</button>
+
+  <button style="margin-top: 14px;" id="generate1">Generate1</button>
 
   <script type="module">
     import GIF from 'gif.js'
-    import { createDomVcr } from './src'
+    import { createVcr } from './src'
 
     const dom = document.querySelector('#app')
 
-    document.querySelector('button').addEventListener('click', async e => {
+    const vcr = createVcr(dom, {
+      gif: new GIF({
+        workerScript: './node_modules/gif.js/dist/gif.worker.js',
+      }),
+      interval: 2000
+    })
+
+    document.querySelector('#generate').addEventListener('click', async e => {
       const button = e.target
       if (button.innerText === 'Generating') return
       button.disabled = 'disabled'
       button.innerText = 'Generating'
-
-      const vcr = createDomVcr(dom, {
-        gif: new GIF({
-          workerScript: './node_modules/gif.js/dist/gif.worker.js',
-        }),
-      })
 
       dom.style.backgroundColor = 'red'
       await vcr.addFrame()
@@ -42,6 +60,22 @@
       await vcr.addFrame()
 
       const blob = await vcr.render()
+      window.open(URL.createObjectURL(blob))
+
+      button.disabled = undefined
+      button.innerText = 'Generate'
+    })
+
+    document.querySelector('#generate1').addEventListener('click', async e => {
+      const button = e.target
+      if (button.innerText === 'Generating') return
+      button.disabled = 'disabled'
+      button.innerText = 'Generating'
+
+      dom.classList.add('animation')
+      await vcr.record(2000)
+      const blob = await vcr.render()
+      dom.classList.remove('animation')
 
       window.open(URL.createObjectURL(blob))
 

@@ -2,7 +2,7 @@ import { isElementNode } from './utils'
 import type { Options } from './types'
 
 export function resovleOptions(node: Node, options: Partial<Options> = {}): Options {
-  const { fps = 2 } = options
+  const { interval = 500 } = options
   let { width = 0, height = 0 } = options
 
   if (isElementNode(node)) {
@@ -13,8 +13,8 @@ export function resovleOptions(node: Node, options: Partial<Options> = {}): Opti
 
   return {
     ...options,
-    fps,
     width,
     height,
+    interval,
   }
 }

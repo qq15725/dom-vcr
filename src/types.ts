@@ -1,10 +1,10 @@
-import type GifJsRecorder from 'gif.js'
+import type GifJs from 'gif.js'
 
 export interface Options {
   width: number
   height: number
-  fps: number
-  gif?: GifJsRecorder
+  interval: number
+  gif?: GifJs
 }
 
 export interface Mp4FrameOptions {

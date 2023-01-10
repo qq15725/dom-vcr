@@ -1,7 +1,7 @@
 import type { Options, Recorder } from '../types'
 
 export function createMp4Recorder(options: Options): Recorder {
-  const { width, height, fps } = options
+  const { width, height, interval } = options
 
   let frames: CanvasImageSource[] = []
 
@@ -15,7 +15,7 @@ export function createMp4Recorder(options: Options): Recorder {
         canvas.width = width
         canvas.height = height
         const context = canvas.getContext('2d')!
-        const stream = canvas.captureStream(fps)
+        const stream = canvas.captureStream(1000 / interval)
         const media = new MediaRecorder(stream, { mimeType: 'video/webm;codecs=h264' })
 
         let frameIndex = 0
@@ -31,12 +31,10 @@ export function createMp4Recorder(options: Options): Recorder {
         media.ondataavailable = async ({ data }) => {
           blobs.push(data)
           if (media.state === 'recording') {
-            media.pause()
             if (!frames[frameIndex + 1]) {
               return media.stop()
             }
             frameIndex++
-            media.resume()
           }
         }
 
@@ -47,7 +45,7 @@ export function createMp4Recorder(options: Options): Recorder {
           frameIndex = 0
         }
 
-        media.start(1000 / fps)
+        media.start(interval)
 
         loop()
       })
