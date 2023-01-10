@@ -24,7 +24,7 @@ npm i dom-vcr
 
 ## 🦄 Usage
 
-### Render MP4
+### Generate MP4
 
 ```ts
 import { createDomVcr } from 'dom-vcr'
@@ -34,7 +34,7 @@ const vcr = createDomVcr(dom, {
   fps: 2,
 })
 
-async function render() {
+async function generate() {
   dom.style.backgroundColor = 'red'
   await vcr.addFrame()
   dom.style.backgroundColor = 'yellow'
@@ -46,10 +46,10 @@ async function render() {
   window.open(URL.createObjectURL(blob))
 }
 
-render()
+generate()
 ```
 
-### Render GIF
+### Generate GIF
 
 > need install `gif.js`
 
@@ -65,7 +65,7 @@ const vcr = createDomVcr(dom, {
   }),
 })
 
-async function render() {
+async function generate() {
   dom.style.backgroundColor = 'red'
   await vcr.addFrame()
   dom.style.backgroundColor = 'yellow'
@@ -77,7 +77,7 @@ async function render() {
   window.open(URL.createObjectURL(blob))
 }
 
-render()
+generate()
 ```
 
 ### CDN

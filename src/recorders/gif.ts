@@ -5,7 +5,7 @@ export function createGifRecorder(options: Options): Recorder {
 
   return {
     addFrame(frame, options) {
-      gif?.addFrame(frame, { ...options, delay: 1000 / fps })
+      gif?.addFrame(frame, { delay: 1000 / fps, ...options })
     },
     render() {
       return new Promise(resolve => {
