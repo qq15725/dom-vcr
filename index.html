@@ -4,22 +4,10 @@
   <meta charset="utf-8">
   <title>Playground</title>
   <style>
-    @keyframes color
-    {
-      from {
-        background: red;
-      }
-
-      to {
-        background: yellow;
-      }
-    }
-
     #app {
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      animation: color 1s infinite;
     }
   </style>
 </head>
@@ -32,24 +20,26 @@
     import GIF from 'gif.js'
     import { createDomVcr } from './src'
 
+    const dom = document.querySelector('#app')
+
     document.querySelector('button').addEventListener('click', async e => {
       const button = e.target
       if (button.innerText === 'Generating') return
       button.disabled = 'disabled'
       button.innerText = 'Generating'
 
-      const vcr = createDomVcr(document.querySelector('#app'), {
+      const vcr = createDomVcr(dom, {
         gif: new GIF({
-          workers: 2,
-          quality: 10,
           workerScript: './node_modules/gif.js/dist/gif.worker.js',
         }),
       })
 
-      for (const i of Array(5)) {
-        await new Promise(resolve => setTimeout(resolve, 500))
-        vcr.addFrame()
-      }
+      dom.style.backgroundColor = 'red'
+      await vcr.addFrame()
+      dom.style.backgroundColor = 'yellow'
+      await vcr.addFrame()
+      dom.style.backgroundColor = 'green'
+      await vcr.addFrame()
 
       const blob = await vcr.render()
 

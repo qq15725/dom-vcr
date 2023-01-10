@@ -24,36 +24,57 @@ npm i dom-vcr
 
 ## 🦄 使用
 
-### 基础
+### 渲染 MP4
 
 ```ts
 import { createDomVcr } from 'dom-vcr'
 
-const vcr = createDomVcr(document.querySelector('#app'))
+const dom = document.querySelector('#app')
+const vcr = createDomVcr(dom, {
+  fps: 2,
+})
 
-vcr.start()
+async function render() {
+  dom.style.backgroundColor = 'red'
+  await vcr.addFrame()
+  dom.style.backgroundColor = 'yellow'
+  await vcr.addFrame()
+  dom.style.backgroundColor = 'green'
+  await vcr.addFrame()
 
-setTimeout(async () => {
-  const blob = await vcr.stop()
+  const blob = await vcr.render()
   window.open(URL.createObjectURL(blob))
-}, 5000)
+}
+
+render()
 ```
 
-### 手动添加帧
+### 渲染 GIF
 
 ```ts
 import { createDomVcr } from 'dom-vcr'
 
-const vcr = createDomVcr(document.querySelector('#app'), { autoAddFrame: false, fps: 1 })
+const dom = document.querySelector('#app')
+const vcr = createDomVcr(dom, {
+  fps: 2,
+  gif: new GIF({
+    workerScript: './node_modules/gif.js/dist/gif.worker.js',
+  }),
+})
 
-vcr.start()
-  .then(() => vcr.addFrame())
-  .then(() => vcr.addFrame())
-  .then(() => vcr.addFrame())
-  .then(() => vcr.stop())
-  .then(blob => {
-    window.open(URL.createObjectURL(blob))
-  })
+async function render() {
+  dom.style.backgroundColor = 'red'
+  await vcr.addFrame()
+  dom.style.backgroundColor = 'yellow'
+  await vcr.addFrame()
+  dom.style.backgroundColor = 'green'
+  await vcr.addFrame()
+
+  const blob = await vcr.render()
+  window.open(URL.createObjectURL(blob))
+}
+
+render()
 ```
 
 ### CDN
