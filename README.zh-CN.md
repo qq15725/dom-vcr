@@ -51,8 +51,11 @@ render()
 
 ### 渲染 GIF
 
+> 需要安装 `gif.js`
+
 ```ts
 import { createDomVcr } from 'dom-vcr'
+import GIF from 'gif.js'
 
 const dom = document.querySelector('#app')
 const vcr = createDomVcr(dom, {
