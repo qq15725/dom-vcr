@@ -1,7 +1,7 @@
 {
   "name": "dom-vcr",
   "type": "module",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "packageManager": "pnpm@7.9.0",
   "description": "dom to mp4/gif",
   "author": "wxm",
