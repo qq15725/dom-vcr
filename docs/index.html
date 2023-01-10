@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Playground</title>
+  <style>
+    @keyframes color
+    {
+      from {
+        background: red;
+      }
+
+      to {
+        background: yellow;
+      }
+    }
+
+    .animation {
+      animation: color 1s infinite;
+    }
+
+    #app {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+  </style>
+  <script src="https://unpkg.com/gif.js"></script>
+  <script src="https://unpkg.com/dom-vcr"></script>
+</head>
+<body>
+<div id="app"></div>
+
+<button style="margin-top: 14px;" id="generate">Generate</button>
+
+<button style="margin-top: 14px;" id="generate1">Generate1</button>
+
+<script type="module">
+  const dom = document.querySelector('#app')
+
+  const vcr = window.domVcr.createVcr(dom, {
+    gif: new window.GIF({
+      workerScript: 'https://unpkg.com/gif.js/dist/gif.worker.js',
+    }),
+    interval: 2000,
+  })
+
+  document.querySelector('#generate').addEventListener('click', async e => {
+    const button = e.target
+    if (button.innerText === 'Generating') return
+    button.disabled = 'disabled'
+    button.innerText = 'Generating'
+
+    dom.style.backgroundColor = 'red'
+    await vcr.addFrame()
+    dom.style.backgroundColor = 'yellow'
+    await vcr.addFrame()
+    dom.style.backgroundColor = 'green'
+    await vcr.addFrame()
+
+    const blob = await vcr.render()
+    window.open(URL.createObjectURL(blob))
+
+    button.disabled = undefined
+    button.innerText = 'Generate'
+  })
+
+  document.querySelector('#generate1').addEventListener('click', async e => {
+    const button = e.target
+    if (button.innerText === 'Generating') return
+    button.disabled = 'disabled'
+    button.innerText = 'Generating'
+
+    dom.classList.add('animation')
+    await vcr.record(2000)
+    const blob = await vcr.render()
+    dom.classList.remove('animation')
+
+    window.open(URL.createObjectURL(blob))
+
+    button.disabled = undefined
+    button.innerText = 'Generate'
+  })
+</script>
+</body>
+</html>

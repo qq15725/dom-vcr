@@ -15,7 +15,7 @@ export default defineConfig({
         return `${ name }.${ format }`
       },
       entry: resolvePath('./src/index.ts'),
-      name,
+      name: name.replace(/-(\w)/ig, (_, v) => v.toUpperCase()),
     },
   },
 })
