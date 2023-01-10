@@ -12,7 +12,7 @@
   </a>
 </p>
 
-<p align="center">使用 HTML5 canvas 和 SVG 生成视频. gzip 5kb.</p>
+<p align="center">使用 HTML5 canvas 和 SVG 生成 mp4/gif. gzip 5kb.</p>
 
 <p align="center"><a href="README.md">English</a> | 简体中文</p>
 

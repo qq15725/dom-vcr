@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.5",
   "packageManager": "pnpm@7.9.0",
-  "description": "dom to video",
+  "description": "dom to mp4/gif",
   "author": "wxm",
   "license": "MIT",
   "homepage": "https://github.com/qq15725/dom-vcr",
@@ -16,6 +16,7 @@
   },
   "keywords": [
     "dom-to-mp4",
+    "dom-to-gif",
     "dom-to-video",
     "dom-vcr"
   ],
