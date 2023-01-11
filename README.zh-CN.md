@@ -12,7 +12,7 @@
   </a>
 </p>
 
-<p align="center">使用 HTML5 canvas 和 SVG 生成 MP4 / GIF</p>
+<p align="center">使用 HTML5 canvas 和 SVG 从 DOM 节点生成视频或 GIF</p>
 
 <p align="center"><a href="README.md">English</a> | 简体中文</p>
 

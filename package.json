@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.1.1",
   "packageManager": "pnpm@7.9.0",
-  "description": "dom to mp4/gif",
+  "description": "Generates an video or GIF from a DOM node using HTML5 canvas and SVG",
   "author": "wxm",
   "license": "MIT",
   "homepage": "https://github.com/qq15725/dom-vcr",
@@ -15,10 +15,17 @@
     "url": "https://github.com/qq15725/dom-vcr/issues"
   },
   "keywords": [
-    "dom-to-mp4",
-    "dom-to-gif",
-    "dom-to-video",
-    "dom-vcr"
+    "dom",
+    "image",
+    "raster",
+    "render",
+    "html",
+    "canvas",
+    "svg",
+    "mp4",
+    "gif",
+    "video",
+    "vcr"
   ],
   "sideEffects": false,
   "exports": {

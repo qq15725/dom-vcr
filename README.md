@@ -12,7 +12,7 @@
   </a>
 </p>
 
-<p align="center">Generate MP4 / GIF using HTML5 canvas and SVG.</p>
+<p align="center">Generates an video or GIF from a DOM node using HTML5 canvas and SVG</p>
 
 <p align="center">English | <a href="README.zh-CN.md">简体中文</a></p>
 
