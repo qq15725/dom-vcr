@@ -29,9 +29,10 @@
 <body>
   <div id="app"></div>
 
-  <button style="margin-top: 14px;" id="generate">Generate</button>
-
-  <button style="margin-top: 14px;" id="generate1">Generate1</button>
+  <button style="margin-top: 14px;" id="generateGif">Generate GIF</button>
+  <button style="margin-top: 14px;" id="generateGifByRecord">Generate GIF(record 2s)</button>
+  <button style="margin-top: 14px;" id="generateVideo">Generate Video</button>
+  <button style="margin-top: 14px;" id="generateVideoByRecord">Generate Video(record 2s)</button>
 
   <script type="module">
     import GIF from 'gif.js'
@@ -39,48 +40,89 @@
 
     const dom = document.querySelector('#app')
 
-    const vcr = createVcr(dom, {
+    const videoVcr = createVcr(dom, {
+      interval: 500,
+    })
+
+    const gifVcr = createVcr(dom, {
       gif: new GIF({
         workerScript: './node_modules/gif.js/dist/gif.worker.js',
       }),
-      interval: 2000,
+      interval: 500,
     })
 
-    document.querySelector('#generate').addEventListener('click', async e => {
+    document.querySelector('#generateGif').addEventListener('click', async e => {
       const button = e.target
       if (button.innerText === 'Generating') return
       button.disabled = 'disabled'
       button.innerText = 'Generating'
 
       dom.style.backgroundColor = 'red'
-      await vcr.addFrame()
+      await gifVcr.addFrame()
       dom.style.backgroundColor = 'yellow'
-      await vcr.addFrame()
+      await gifVcr.addFrame()
       dom.style.backgroundColor = 'green'
-      await vcr.addFrame()
+      await gifVcr.addFrame()
 
-      const blob = await vcr.render()
+      const blob = await gifVcr.render()
       window.open(URL.createObjectURL(blob))
 
       button.disabled = undefined
-      button.innerText = 'Generate'
+      button.innerText = 'Generate GIF'
     })
 
-    document.querySelector('#generate1').addEventListener('click', async e => {
+    document.querySelector('#generateGifByRecord').addEventListener('click', async e => {
       const button = e.target
       if (button.innerText === 'Generating') return
       button.disabled = 'disabled'
       button.innerText = 'Generating'
 
       dom.classList.add('animation')
-      await vcr.record(2000)
-      const blob = await vcr.render()
+      await gifVcr.record(2000)
+      const blob = await gifVcr.render()
       dom.classList.remove('animation')
 
       window.open(URL.createObjectURL(blob))
 
       button.disabled = undefined
-      button.innerText = 'Generate'
+      button.innerText = 'Generate GIF(record 2s)'
+    })
+
+    document.querySelector('#generateVideo').addEventListener('click', async e => {
+      const button = e.target
+      if (button.innerText === 'Generating') return
+      button.disabled = 'disabled'
+      button.innerText = 'Generating'
+
+      dom.style.backgroundColor = 'red'
+      await videoVcr.addFrame()
+      dom.style.backgroundColor = 'yellow'
+      await videoVcr.addFrame()
+      dom.style.backgroundColor = 'green'
+      await videoVcr.addFrame()
+
+      const blob = await videoVcr.render()
+      window.open(URL.createObjectURL(blob))
+
+      button.disabled = undefined
+      button.innerText = 'Generate Video'
+    })
+
+    document.querySelector('#generateVideoByRecord').addEventListener('click', async e => {
+      const button = e.target
+      if (button.innerText === 'Generating') return
+      button.disabled = 'disabled'
+      button.innerText = 'Generating'
+
+      dom.classList.add('animation')
+      await videoVcr.record(2000)
+      const blob = await videoVcr.render()
+      dom.classList.remove('animation')
+
+      window.open(URL.createObjectURL(blob))
+
+      button.disabled = undefined
+      button.innerText = 'Generate Video(record 2s)'
     })
   </script>
 </body>
