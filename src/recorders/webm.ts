@@ -1,6 +1,6 @@
 import type { Options, Recorder } from '../types'
 
-export function createMp4Recorder(options: Options): Recorder {
+export function createWebmRecorder(options: Options): Recorder {
   const { width, height, interval } = options
 
   let frames: CanvasImageSource[] = []
@@ -39,7 +39,7 @@ export function createMp4Recorder(options: Options): Recorder {
         }
 
         media.onstop = () => {
-          resolve(new Blob(blobs, { type: 'video/mp4' }))
+          resolve(new Blob(blobs, { type: 'video/webm' }))
           blobs = []
           frames = []
           frameIndex = 0

@@ -1,5 +1,5 @@
 import { domToImage, loadMedia } from 'modern-screenshot'
-import { createGifRecorder, createMp4Recorder } from './recorders'
+import { createGifRecorder, createWebmRecorder } from './recorders'
 import { resovleOptions } from './options'
 import type { Options as ScreenshotOptions } from 'modern-screenshot'
 import type { FrameOptions, Options, Recorder } from './types'
@@ -15,7 +15,7 @@ export function createVcr<T extends Node>(
   if (gif) {
     recorder = createGifRecorder(options)
   } else {
-    recorder = createMp4Recorder(options)
+    recorder = createWebmRecorder(options)
   }
 
   async function addFrame(options?: ScreenshotOptions & FrameOptions) {

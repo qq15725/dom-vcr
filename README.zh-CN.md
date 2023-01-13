@@ -39,7 +39,7 @@ vcr.record(2000)
   })
 ```
 
-### 生成 MP4
+### 生成 WEBM
 
 ```ts
 import { createVcr } from 'dom-vcr'
