@@ -1,10 +1,11 @@
-import type GifJs from 'gif.js'
+import type Gif from 'gif.js'
 
 export interface Options {
   width: number
   height: number
   interval: number
-  gif?: GifJs
+  type: 'mp4' | 'gif' | 'webm'
+  gif?: Gif
 }
 
 export interface Mp4FrameOptions {
@@ -18,6 +19,6 @@ export interface GifFrameOptions {
 export type FrameOptions = Mp4FrameOptions | GifFrameOptions
 
 export interface Recorder {
-  addFrame(frame: CanvasImageSource, options?: FrameOptions): void
+  addFrame(frame: CanvasImageSource, options?: FrameOptions): void | Promise<void>
   render(): Promise<Blob>
 }

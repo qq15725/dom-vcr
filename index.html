@@ -20,15 +20,14 @@
     }
 
     #app {
-      width: 200px;
-      height: 200px;
+      width: 640px;
+      height: 360px;
       border-radius: 50%;
     }
   </style>
 </head>
 <body>
   <div id="app"></div>
-
   <button style="margin-top: 14px;" id="generateGif">Generate GIF</button>
   <button style="margin-top: 14px;" id="generateGifByRecord">Generate GIF(record 2s)</button>
   <button style="margin-top: 14px;" id="generateVideo">Generate Video</button>
@@ -41,10 +40,11 @@
     const dom = document.querySelector('#app')
 
     const videoVcr = createVcr(dom, {
-      interval: 500,
+      interval: 800,
     })
 
     const gifVcr = createVcr(dom, {
+      type: 'gif',
       gif: new GIF({
         workerScript: './node_modules/gif.js/dist/gif.worker.js',
       }),

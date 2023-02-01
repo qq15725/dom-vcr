@@ -46,6 +46,7 @@ import { createVcr } from 'dom-vcr'
 
 const dom = document.querySelector('#app')
 const vcr = createVcr(dom, {
+  type: 'webm',
   interval: 1000,
 })
 
