@@ -1,15 +1,16 @@
-import { domToImage, loadMedia } from 'modern-screenshot'
+import { createContext, destroyContext, domToCanvas } from 'modern-screenshot'
 import { createGifRecorder, createMp4Recorder, createWebmRecorder } from './recorders'
 import { resovleOptions } from './options'
 import type { Options as ScreenshotOptions } from 'modern-screenshot'
 import type { FrameOptions, Options, Recorder } from './types'
 
-export function createVcr<T extends Node>(
+export async function createVcr<T extends Node>(
   node: T,
-  userOptions: Partial<Options> = {},
+  userOptions: ScreenshotOptions & Partial<Options> = {},
 ) {
   const options = resovleOptions(node, userOptions)
   const { type, interval } = options
+  let context = await createContext(node, { ...userOptions, type: 'image/png' })
 
   let recorder: Recorder
   switch (type) {
@@ -24,15 +25,17 @@ export function createVcr<T extends Node>(
       break
   }
 
-  async function addFrame(options?: ScreenshotOptions & FrameOptions) {
-    return await recorder.addFrame(await loadMedia(await domToImage(node, options)), options)
+  async function addFrame(options?: FrameOptions) {
+    return await recorder.addFrame(await domToCanvas(context), options)
   }
 
-  function render() {
-    return recorder.render()
+  async function render() {
+    destroyContext(context)
+    context = await createContext(node, { ...userOptions, type: 'image/png' })
+    return await recorder.render()
   }
 
-  async function record(time: number, options?: ScreenshotOptions & FrameOptions) {
+  async function record(time: number, options?: FrameOptions) {
     const promises = []
     while (time > 0) {
       const frameTime = Math.min(time, interval)

@@ -33,17 +33,22 @@
   <button style="margin-top: 14px;" id="generateVideo">Generate Video</button>
   <button style="margin-top: 14px;" id="generateVideoByRecord">Generate Video(record 2s)</button>
 
-  <script type="module">
+  <script type="module" async>
     import GIF from 'gif.js'
+    import mp4 from 'mp4box'
     import { createVcr } from './src'
 
     const dom = document.querySelector('#app')
 
-    const videoVcr = createVcr(dom, {
+    const videoVcr = await createVcr(dom, {
+      debug: true,
+      type: 'mp4',
+      mp4,
       interval: 800,
     })
 
-    const gifVcr = createVcr(dom, {
+    const gifVcr = await createVcr(dom, {
+      debug: true,
       type: 'gif',
       gif: new GIF({
         workerScript: './node_modules/gif.js/dist/gif.worker.js',

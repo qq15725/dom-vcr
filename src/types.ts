@@ -5,7 +5,10 @@ export interface Options {
   height: number
   interval: number
   type: 'mp4' | 'gif' | 'webm'
+  // gif.js
   gif?: Gif
+  // mp4box
+  mp4?: any
 }
 
 export interface Mp4FrameOptions {
