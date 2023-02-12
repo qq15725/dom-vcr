@@ -26,6 +26,7 @@
     }
   </style>
   <script src="https://unpkg.com/gif.js"></script>
+  <script src="https://unpkg.com/mp4box"></script>
   <script src="https://unpkg.com/dom-vcr"></script>
 </head>
 <body>
@@ -36,14 +37,22 @@
 <button style="margin-top: 14px;" id="generateVideo">Generate Video</button>
 <button style="margin-top: 14px;" id="generateVideoByRecord">Generate Video(record 2s)</button>
 
-<script type="module">
+<script type="module" async>
   const dom = document.querySelector('#app')
 
-  const videoVcr = window.domVcr.createVcr(dom, {
+  const videoVcr = await window.domVcr.createVcr(dom, {
+    debug: true,
+    type: 'mp4',
+    mp4: {
+      createFile: window.MP4Box.createFile,
+      DataStream: window.DataStream,
+    },
     interval: 800,
   })
 
-  const gifVcr = window.domVcr.createVcr(dom, {
+  const gifVcr = await window.domVcr.createVcr(dom, {
+    debug: true,
+    type: 'gif',
     gif: new window.GIF({
       workerScript: './gif.worker.js',
     }),
