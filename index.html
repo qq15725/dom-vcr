@@ -42,6 +42,7 @@
 
     const videoVcr = await createVcr(dom, {
       debug: true,
+      scale: 2,
       type: 'mp4',
       mp4,
       interval: 800,
@@ -49,6 +50,7 @@
 
     const gifVcr = await createVcr(dom, {
       debug: true,
+      scale: 2,
       type: 'gif',
       gif: new GIF({
         workerScript: './node_modules/gif.js/dist/gif.worker.js',
