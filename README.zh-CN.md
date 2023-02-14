@@ -1,14 +1,14 @@
 <h1 align="center">DOM VCR</h1>
 
 <p align="center">
-  <a href="https://github.com/qq15725/dom-vcr/blob/master/LICENSE" class="mr-3">
-    <img src="https://img.shields.io/npm/l/dom-vcr.svg" alt="License">
+  <a href="https://unpkg.com/dom-vcr">
+    <img src="https://img.shields.io/bundlephobia/minzip/dom-vcr" alt="Minzip">
   </a>
   <a href="https://www.npmjs.com/package/dom-vcr">
     <img src="https://img.shields.io/npm/v/dom-vcr.svg" alt="Version">
   </a>
-  <a href="https://cdn.jsdelivr.net/npm/dom-vcr/dist/index.js">
-    <img src="https://img.shields.io/bundlephobia/minzip/dom-vcr" alt="Minzip">
+  <a href="https://github.com/qq15725/dom-vcr/blob/master/LICENSE" class="mr-3">
+    <img src="https://img.shields.io/npm/l/dom-vcr.svg" alt="License">
   </a>
 </p>
 
@@ -22,24 +22,16 @@
 npm i dom-vcr
 ```
 
-## 🦄 使用
+<details>
+<summary>CDN</summary><br>
 
-### 基本使用
-
-```ts
-import { createVcr } from 'dom-vcr'
-
-const dom = document.querySelector('#app')
-const vcr = createVcr(dom)
-
-vcr.record(2000)
-  .then(() => vcr.render())
-  .then(blob => {
-    window.open(URL.createObjectURL(blob))
-  })
+```html
+<script src="https://unpkg.com/dom-vcr"></script>
 ```
 
-### 生成 WEBM
+<br></details>
+
+## 🦄 使用
 
 ```ts
 import { createVcr } from 'dom-vcr'
@@ -65,20 +57,20 @@ async function generate() {
 generate()
 ```
 
-### 生成 GIF
+<details>
+<summary>MP4</summary><br>
 
-> 需要安装 `gif.js`
+> 需要安装 `mp4box`
 
 ```ts
 import { createVcr } from 'dom-vcr'
-import GIF from 'gif.js'
+import mp4box from 'mp4box'
 
 const dom = document.querySelector('#app')
 const vcr = createVcr(dom, {
+  type: 'mp4',
+  mp4: mp4box,
   interval: 1000,
-  gif: new GIF({
-    workerScript: './node_modules/gif.js/dist/gif.worker.js',
-  }),
 })
 
 async function generate() {
@@ -96,8 +88,40 @@ async function generate() {
 generate()
 ```
 
-### CDN
+<br></details>
 
-```html
-<script src="https://unpkg.com/dom-vcr"></script>
+<details>
+<summary>GIF</summary><br>
+
+> 需要安装 `gif.js`
+
+```ts
+import { createVcr } from 'dom-vcr'
+import GIF from 'gif.js'
+import GIFWorkerScript from 'gif.js/dist/gif.worker?url'
+
+const dom = document.querySelector('#app')
+const vcr = createVcr(dom, {
+  type: 'gif',
+  gif: new GIF({
+    workerScript: GIFWorkerScript,
+  }),
+  interval: 1000,
+})
+
+async function generate() {
+  dom.style.backgroundColor = 'red'
+  await vcr.addFrame()
+  dom.style.backgroundColor = 'yellow'
+  await vcr.addFrame()
+  dom.style.backgroundColor = 'green'
+  await vcr.addFrame()
+
+  const blob = await vcr.render()
+  window.open(URL.createObjectURL(blob))
+}
+
+generate()
 ```
+
+<br></details>
