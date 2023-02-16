@@ -7,7 +7,13 @@
   <a href="https://www.npmjs.com/package/dom-vcr">
     <img src="https://img.shields.io/npm/v/dom-vcr.svg" alt="Version">
   </a>
-  <a href="https://github.com/qq15725/dom-vcr/blob/master/LICENSE" class="mr-3">
+  <a href="https://www.npmjs.com/package/dom-vcr">
+    <img src="https://img.shields.io/npm/dm/dom-vcr" alt="Downloads">
+  </a>
+  <a href="https://github.com/qq15725/dom-vcr/issues">
+    <img src="https://img.shields.io/github/issues/qq15725/dom-vcr" alt="Issues">
+  </a>
+  <a href="https://github.com/qq15725/dom-vcr/blob/master/LICENSE">
     <img src="https://img.shields.io/npm/l/dom-vcr.svg" alt="License">
   </a>
 </p>
