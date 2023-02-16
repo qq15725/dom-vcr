@@ -36,9 +36,8 @@
   <button style="margin-top: 14px;" id="generateVideoByRecord">Generate Video(record 2s)</button>
 
   <script type="module" async>
-    import GIF from 'gif.js'
-    import GIFWorkerScript from 'gif.js/dist/gif.worker?url'
-    import MP4 from 'mp4box'
+    import * as gif from 'modern-gif'
+    import mp4 from 'mp4box'
     import { createVcr } from './src'
 
     const dom = document.querySelector('#app')
@@ -47,7 +46,7 @@
       debug: true,
       scale: 2,
       type: 'mp4',
-      mp4: MP4,
+      mp4,
       interval: 800,
     })
 
@@ -55,10 +54,7 @@
       debug: true,
       scale: 2,
       type: 'gif',
-      gif: new GIF({
-        transparent: 0x000001,
-        workerScript: GIFWorkerScript,
-      }),
+      gif,
       interval: 500,
     })
 

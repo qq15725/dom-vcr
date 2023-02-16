@@ -25,7 +25,7 @@
       border-radius: 50%;
     }
   </style>
-  <script src="https://unpkg.com/gif.js"></script>
+  <script src="https://unpkg.com/modern-gif"></script>
   <script src="https://unpkg.com/mp4box"></script>
   <script src="https://unpkg.com/dom-vcr"></script>
 </head>
@@ -53,9 +53,7 @@
   const gifVcr = await window.domVcr.createVcr(dom, {
     debug: true,
     type: 'gif',
-    gif: new window.GIF({
-      workerScript: './gif.worker.js',
-    }),
+    gif: window.modernGif,
     interval: 500,
   })
 

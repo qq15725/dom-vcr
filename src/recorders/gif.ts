@@ -1,19 +1,32 @@
 import type { Options, Recorder } from '../types'
 
 export function createGifRecorder(options: Options): Recorder {
-  const { gif, interval } = options
+  const { width, height, gif, interval } = options
+
+  let frames: any[] = []
 
   return {
-    addFrame(frame, options) {
-      gif?.addFrame(frame, { delay: interval, ...options })
+    addFrame(frame) {
+      const imageData = frame.getContext('2d')
+        ?.getImageData(0, 0, width, height)
+        ?.data
+
+      if (!imageData) return
+
+      frames.push({
+        imageData,
+        delay: interval,
+      })
     },
     render() {
       return new Promise(resolve => {
-        gif?.on('finished', blob => {
-          resolve(blob)
-          gif?.abort()
+        const gifData = gif.encode({
+          width,
+          height,
+          frames,
         })
-        gif?.render()
+        frames = []
+        resolve(new Blob([gifData], { type: 'image/gif' }))
       })
     },
   }

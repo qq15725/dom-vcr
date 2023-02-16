@@ -93,19 +93,16 @@ generate()
 <details>
 <summary>GIF</summary><br>
 
-> 需要安装 `gif.js`
+> 需要安装 `modern-gif`
 
 ```ts
 import { createVcr } from 'dom-vcr'
-import GIF from 'gif.js'
-import GIFWorkerScript from 'gif.js/dist/gif.worker?url'
+import * as gif from 'modern-gif'
 
 const dom = document.querySelector('#app')
 const vcr = createVcr(dom, {
   type: 'gif',
-  gif: new GIF({
-    workerScript: GIFWorkerScript,
-  }),
+  gif,
   interval: 1000,
 })
 

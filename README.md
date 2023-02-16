@@ -60,7 +60,7 @@ generate()
 <details>
 <summary>MP4</summary><br>
 
-> need install `mp4box`
+> Need install `mp4box`
 
 ```ts
 import { createVcr } from 'dom-vcr'
@@ -93,19 +93,16 @@ generate()
 <details>
 <summary>GIF</summary><br>
 
-> need install `gif.js`
+> Need install `modern-gif`
 
 ```ts
 import { createVcr } from 'dom-vcr'
-import GIF from 'gif.js'
-import GIFWorkerScript from 'gif.js/dist/gif.worker?url'
+import * as gif from 'modern-gif'
 
 const dom = document.querySelector('#app')
 const vcr = createVcr(dom, {
   type: 'gif',
-  gif: new GIF({
-    workerScript: GIFWorkerScript,
-  }),
+  gif,
   interval: 1000,
 })
 
