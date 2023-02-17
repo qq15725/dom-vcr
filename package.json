@@ -63,13 +63,13 @@
     "@types/node": "^18.13.0",
     "bumpp": "^8.2.1",
     "eslint": "^8.34.0",
-    "modern-gif": "^0.0.5",
+    "modern-gif": "^0.0.6",
     "mp4box": "^0.5.2",
     "typescript": "^4.9.5",
     "vite": "^4.1.1",
     "vitest": "^0.28.5"
   },
   "dependencies": {
-    "modern-screenshot": "^4.3.4"
+    "modern-screenshot": "^4.3.5"
   }
 }
