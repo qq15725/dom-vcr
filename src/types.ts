@@ -5,6 +5,7 @@ export interface Options {
   type: 'mp4' | 'gif' | 'webm'
   // modern-gif
   gif?: any
+  gifWorkerScript?: string
   // mp4box
   mp4?: any
 }

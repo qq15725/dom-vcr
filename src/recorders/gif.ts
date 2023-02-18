@@ -1,9 +1,15 @@
 import type { Options, Recorder } from '../types'
 
 export function createGifRecorder(options: Options): Recorder {
-  const { width, height, gif, interval } = options
+  const { width, height, gif, gifWorkerScript, interval } = options
 
   let encoder = gif.createEncoder({ width, height })
+
+  let gifWorker: Worker | undefined
+
+  if (gifWorkerScript) {
+    gifWorker = new Worker(gifWorkerScript)
+  }
 
   return {
     addFrame(frame) {
@@ -13,12 +19,28 @@ export function createGifRecorder(options: Options): Recorder {
 
       if (!imageData) return
 
-      encoder.write(gif.encodeFrame({
+      const options = {
         width,
         height,
         imageData,
         delay: interval,
-      }))
+      }
+
+      if (gifWorker) {
+        return new Promise(resolve => {
+          gifWorker!.onmessage = (e: any) => {
+            encoder.write(e.data)
+            resolve()
+          }
+
+          gifWorker!.postMessage(options, [imageData.buffer])
+        })
+      } else {
+        encoder.write(
+          gif.encodeFrame(options),
+        )
+        return undefined
+      }
     },
     render() {
       return new Promise(resolve => {
