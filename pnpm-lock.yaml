@@ -7,7 +7,7 @@ specifiers:
   bumpp: ^8.2.1
   conventional-changelog-cli: ^2.2.2
   eslint: ^8.34.0
-  modern-gif: ^0.0.6
+  modern-gif: ^0.0.7
   modern-screenshot: ^4.3.5
   mp4box: ^0.5.2
   typescript: ^4.9.5
@@ -24,7 +24,7 @@ devDependencies:
   bumpp: 8.2.1
   conventional-changelog-cli: 2.2.2
   eslint: 8.34.0
-  modern-gif: 0.0.6
+  modern-gif: 0.0.7
   mp4box: 0.5.2
   typescript: 4.9.5
   vite: 4.1.2_@types+node@18.14.0
@@ -2619,8 +2619,8 @@ packages:
       ufo: 1.1.0
     dev: true
 
-  /modern-gif/0.0.6:
-    resolution: {integrity: sha512-igIKk/e6DtHsV8oxkZYEiDgT4oe9JzBviEriQMlHel1JabZrhhcwfW9KUXb4jInLY0x46P10l+K9NI33Zu200Q==}
+  /modern-gif/0.0.7:
+    resolution: {integrity: sha512-uoAjoDgjUPQvvtQABhhZIYbGvlooMFvkI2bnG+QeRrzfJA9r4uvm0eKt0yLdS9wWJJMG+xkVS6IAZ8R525slOA==}
     dev: true
 
   /modern-screenshot/4.3.5:
