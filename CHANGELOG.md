@@ -1,3 +1,12 @@
+## [0.3.1](https://github.com/qq15725/dom-vcr/compare/v0.3.0...v0.3.1) (2023-02-20)
+
+
+### Features
+
+* add `isSupported` method ([53d49fe](https://github.com/qq15725/dom-vcr/commit/53d49fe4d0c22c446e12c2f64186860317fb88ec))
+
+
+
 # [0.3.0](https://github.com/qq15725/dom-vcr/compare/v0.2.8...v0.3.0) (2023-02-20)
 
 
