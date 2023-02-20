@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/qq15725/dom-vcr/compare/v0.2.8...v0.3.0) (2023-02-20)
+
+
+### Features
+
+* upgrade modern-gif ([f235d8e](https://github.com/qq15725/dom-vcr/commit/f235d8ea141d43704432f56c97d75fbb62e6a558))
+
+
+
 ## [0.2.8](https://github.com/qq15725/dom-vcr/compare/v0.2.7...v0.2.8) (2023-02-18)
 
 
