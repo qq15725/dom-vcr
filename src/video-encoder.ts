@@ -6,6 +6,9 @@ interface context {
 }
 
 export function createVideoEncoder(mp4: any) {
+  const createFile = mp4.createFile
+  const DataStream = mp4.DataStream
+
   const context: context = {
     framesCount: 0,
   }
@@ -46,16 +49,15 @@ export function createVideoEncoder(mp4: any) {
     error: console.error,
   })
 
-  function reset() {
-    context.file = mp4.createFile()
+  function configure(config?: VideoEncoderConfig) {
+    encoder.reset()
+    context.file = createFile()
     context.track = undefined
     context.framesCount = 0
-  }
-
-  function configure(config: VideoEncoderConfig) {
-    reset()
-    context.config = config
-    encoder.configure(config)
+    if (config) {
+      encoder.configure(config)
+      context.config = config
+    }
   }
 
   function encode(data: CanvasImageSource) {
@@ -75,13 +77,13 @@ export function createVideoEncoder(mp4: any) {
     return encoder.flush().then(() => {
       const { file } = context
       file.flush()
-      const dataStream = new mp4.DataStream()
-      dataStream.endianness = mp4.DataStream.BIG_ENDIAN
+      const stream = new DataStream()
+      stream.endianness = DataStream.BIG_ENDIAN
       for (let i = 0; i < file.boxes.length; i++) {
-        file.boxes[i].write(dataStream)
+        file.boxes[i].write(stream)
       }
-      reset()
-      return dataStream.buffer
+      configure(context.config)
+      return stream.buffer
     })
   }
 

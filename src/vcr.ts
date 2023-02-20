@@ -47,6 +47,7 @@ export async function createVcr<T extends Node>(
   }
 
   return {
+    isSupported: recorder.isSupported,
     addFrame,
     render,
     record,

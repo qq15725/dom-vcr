@@ -21,6 +21,7 @@ export interface GifFrameOptions {
 export type FrameOptions = Mp4FrameOptions | GifFrameOptions
 
 export interface Recorder {
-  addFrame(frame: HTMLCanvasElement, options?: FrameOptions): void | Promise<void>
+  isSupported(): boolean | Promise<boolean>
+  addFrame(canvas: HTMLCanvasElement, options?: FrameOptions): void | Promise<void>
   render(): Promise<Blob>
 }

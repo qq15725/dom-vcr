@@ -1,3 +1,4 @@
+import { SUPPORT_MEDIA_RECORDER } from '../utils'
 import type { Options, Recorder } from '../types'
 
 export function createWebmRecorder(options: Options): Recorder {
@@ -6,8 +7,11 @@ export function createWebmRecorder(options: Options): Recorder {
   let frames: CanvasImageSource[] = []
 
   return {
-    addFrame(frame) {
-      frames.push(frame)
+    isSupported() {
+      return SUPPORT_MEDIA_RECORDER
+    },
+    addFrame(canvas) {
+      frames.push(canvas)
     },
     render() {
       return new Promise(resolve => {
