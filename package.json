@@ -73,6 +73,6 @@
     "vitest": "^0.28.5"
   },
   "dependencies": {
-    "modern-screenshot": "^4.3.5"
+    "modern-screenshot": "^4.4.0"
   }
 }
