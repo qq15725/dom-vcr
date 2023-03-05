@@ -8,14 +8,14 @@ specifiers:
   conventional-changelog-cli: ^2.2.2
   eslint: ^8.34.0
   modern-gif: ^0.1.1
-  modern-screenshot: ^4.4.0
+  modern-screenshot: ^4.4.2
   mp4box: ^0.5.2
   typescript: ^4.9.5
   vite: ^4.1.2
   vitest: ^0.28.5
 
 dependencies:
-  modern-screenshot: 4.4.0
+  modern-screenshot: 4.4.2
 
 devDependencies:
   '@qq15725/eslint-config': 1.1.0_7kw3g6rralp5ps6mg3uyzz6azm
@@ -2623,8 +2623,8 @@ packages:
     resolution: {integrity: sha512-T54RcoNP3UD8G+U6MJjmrEcX8wwAQPjYa/GrUBmVkALma5oWwM5Bzy/IMdvEDfI3aXXsrRRaQGr7iLbhPbcpjw==}
     dev: true
 
-  /modern-screenshot/4.4.0:
-    resolution: {integrity: sha512-gWU2kaYQAEX/RV28TAfOnvGKvolVVVzlDtZeGX/BXpjlqDrFLuyP1JByG7kgJJP2Db+oGzs4kD3DPno9yfpDUA==}
+  /modern-screenshot/4.4.2:
+    resolution: {integrity: sha512-/iJqw3mzHi9wEwdmM/Z1ZDGB3vWY/5Zm5I2T99ieCITF28yoznVJULAVUEyPyQzKyHsRZPqbUDcjKrQcJHd81Q==}
     dev: false
 
   /modify-values/1.0.1:
