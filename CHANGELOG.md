@@ -1,3 +1,12 @@
+## [0.3.5](https://github.com/qq15725/dom-vcr/compare/v0.3.4...v0.3.5) (2023-05-08)
+
+
+### Features
+
+* gif maxColors ([71c1ec9](https://github.com/qq15725/dom-vcr/commit/71c1ec9c6d2c462fae88576c2a51a221adbd576a))
+
+
+
 ## [0.3.4](https://github.com/qq15725/dom-vcr/compare/v0.3.3...v0.3.4) (2023-05-08)
 
 
