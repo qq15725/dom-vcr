@@ -26,8 +26,6 @@ export function createGifRecorder(options: Options): Recorder {
       if (!imageData) return
 
       encoder.encode({
-        width,
-        height,
         imageData,
         delay: interval,
       })
