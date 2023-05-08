@@ -6,6 +6,8 @@ export interface Options {
   // modern-gif
   gif?: any
   gifWorkerUrl?: string
+  gifWorkerNumber?: number
+  gifMaxColors?: number
   // mp4box
   mp4?: any
 }

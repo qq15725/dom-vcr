@@ -25,7 +25,7 @@ export function createMp4Recorder(options: Options): Recorder {
   return {
     async isSupported() {
       try {
-        return Boolean(encoder) && (await VideoEncoder.isConfigSupported(config)).supported
+        return Boolean(encoder) && Boolean((await VideoEncoder.isConfigSupported(config)).supported)
       } catch (error) {
         return false
       }
