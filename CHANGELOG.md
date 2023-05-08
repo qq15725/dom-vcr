@@ -1,3 +1,12 @@
+## [0.3.4](https://github.com/qq15725/dom-vcr/compare/v0.3.3...v0.3.4) (2023-05-08)
+
+
+### Features
+
+* upgrade dependencies ([f326e97](https://github.com/qq15725/dom-vcr/commit/f326e970e988dd08f299b6ea57b3e79bfeee6e73))
+
+
+
 ## [0.3.3](https://github.com/qq15725/dom-vcr/compare/v0.3.2...v0.3.3) (2023-03-05)
 
 
