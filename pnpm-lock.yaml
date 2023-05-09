@@ -25,8 +25,8 @@ devDependencies:
     specifier: ^8.34.0
     version: 8.34.0
   modern-gif:
-    specifier: ^1.0.0
-    version: 1.0.0
+    specifier: ^1.0.1
+    version: 1.0.1
   mp4box:
     specifier: ^0.5.2
     version: 0.5.2
@@ -2629,14 +2629,14 @@ packages:
       ufo: 1.1.0
     dev: true
 
-  /modern-gif@1.0.0:
-    resolution: {integrity: sha512-Vo0WcNvN/pO+A2B7Eg15/wyVmSQTbGgqHK3ielve06cXjtj2ktfhZjtFo0oMtp+2TtddUEyNJIdarhcQGcVPVw==}
+  /modern-gif@1.0.1:
+    resolution: {integrity: sha512-ZkTEtLR4C2I/QpAlHPc004BmI7EUsGIhN1Xctee7ujzHcZKR2AgdjGPg4AcP2j/1wXR03XyTEYEZgf3vuRlN4g==}
     dependencies:
-      modern-palette: 0.1.4
+      modern-palette: 0.1.8
     dev: true
 
-  /modern-palette@0.1.4:
-    resolution: {integrity: sha512-83vCJAzW/DUvpSEbgA+nl+T0Gb+HNn+gMlTP2kRN9rZbBvk3+FCw48cAbd8SIiMd1tvVtBo+bPENFST1N8YIQA==}
+  /modern-palette@0.1.8:
+    resolution: {integrity: sha512-kCPy5P2nABa+suI34uWyh87PQzhaFmZ5igEEoPowXoCxOpgF6UW8Bj4pdvf+NRFnhMC3Tok6a36bgd/4oT8SRA==}
     dev: true
 
   /modern-screenshot@4.4.20:

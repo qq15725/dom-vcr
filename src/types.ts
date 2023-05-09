@@ -7,6 +7,7 @@ export interface Options {
   gif?: any
   gifWorkerUrl?: string
   gifWorkerNumber?: number
+  gifDebug?: boolean
   gifMaxColors?: number
   // mp4box
   mp4?: any
