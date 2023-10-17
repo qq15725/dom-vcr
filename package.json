@@ -1,7 +1,7 @@
 {
   "name": "dom-vcr",
   "type": "module",
-  "version": "0.3.6",
+  "version": "1.0.0",
   "packageManager": "pnpm@7.9.0",
   "description": "Generates an video or GIF from a DOM node using HTML5 canvas and SVG",
   "author": "wxm",

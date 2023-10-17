@@ -1,3 +1,12 @@
+# [1.0.0](https://github.com/qq15725/dom-vcr/compare/v0.3.6...v1.0.0) (2023-10-17)
+
+
+### Features
+
+* modern-mp4 ([af15c7d](https://github.com/qq15725/dom-vcr/commit/af15c7d2b08a19548107d681270b2164f465a21e))
+
+
+
 ## [0.3.6](https://github.com/qq15725/dom-vcr/compare/v0.3.5...v0.3.6) (2023-05-09)
 
 
