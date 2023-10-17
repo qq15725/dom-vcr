@@ -1,34 +1,20 @@
+import { createEncoder } from 'modern-gif'
 import type { Options, Recorder } from '../types'
-import type { createEncoder } from 'modern-gif'
 
 export function createGifRecorder(options: Options): Recorder {
   const {
     width,
     height,
-    gif,
-    gifWorkerUrl,
-    gifWorkerNumber,
-    gifDebug,
-    gifMaxColors,
     interval,
   } = options
 
-  const encoder = gif?.createEncoder
-    ? (gif.createEncoder as typeof createEncoder)({
-        width,
-        height,
-        workerUrl: gifWorkerUrl,
-        workerNumber: gifWorkerNumber,
-        debug: gifDebug,
-        maxColors: gifMaxColors,
-      })
-    : undefined
+  const encoder = createEncoder({ width, height })
 
   return {
     isSupported() {
       return Boolean(encoder)
     },
-    async addFrame(canvas) {
+    async addFrame(canvas, options) {
       if (!encoder) return
 
       const imageData = canvas.getContext('2d')
@@ -39,7 +25,7 @@ export function createGifRecorder(options: Options): Recorder {
 
       await encoder.encode({
         imageData,
-        delay: interval,
+        delay: options?.duration ?? interval,
       })
     },
     async render() {

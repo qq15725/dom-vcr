@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   modern-screenshot:
     specifier: ^4.4.20
@@ -27,6 +31,9 @@ devDependencies:
   modern-gif:
     specifier: ^1.0.1
     version: 1.0.1
+  modern-mp4:
+    specifier: ^0.0.3
+    version: 0.0.3(mp4box@0.5.2)
   mp4box:
     specifier: ^0.5.2
     version: 0.5.2
@@ -2633,6 +2640,14 @@ packages:
     resolution: {integrity: sha512-ZkTEtLR4C2I/QpAlHPc004BmI7EUsGIhN1Xctee7ujzHcZKR2AgdjGPg4AcP2j/1wXR03XyTEYEZgf3vuRlN4g==}
     dependencies:
       modern-palette: 0.1.8
+    dev: true
+
+  /modern-mp4@0.0.3(mp4box@0.5.2):
+    resolution: {integrity: sha512-uLNIUP2tq9MPpkefxF3RKwGmK/IEENnHBurrOYbBXd3YeyCdFMM26xQtEpmgAVwFA/KgSWLGY0n+SajZ9qe2VQ==}
+    peerDependencies:
+      mp4box: '*'
+    dependencies:
+      mp4box: 0.5.2
     dev: true
 
   /modern-palette@0.1.8:

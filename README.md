@@ -26,6 +26,11 @@
 
 ```shell
 npm i dom-vcr
+
+# optional deps
+npm i modern-gif # by export GIF
+npm i modern-mp4 # by export MP4
+npm i mp4box
 ```
 
 <details>
@@ -66,16 +71,14 @@ generate()
 <details>
 <summary>MP4</summary><br>
 
-> Need install `mp4box`
+> Need install `mp4box` 、`modern-mp4`
 
 ```ts
 import { createVcr } from 'dom-vcr'
-import mp4box from 'mp4box'
 
 const dom = document.querySelector('#app')
 const vcr = createVcr(dom, {
   type: 'mp4',
-  mp4: mp4box,
   interval: 1000,
 })
 
@@ -103,12 +106,10 @@ generate()
 
 ```ts
 import { createVcr } from 'dom-vcr'
-import * as gif from 'modern-gif'
 
 const dom = document.querySelector('#app')
 const vcr = createVcr(dom, {
   type: 'gif',
-  gif,
   interval: 1000,
 })
 

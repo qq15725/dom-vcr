@@ -36,25 +36,19 @@
   <button style="margin-top: 14px;" id="generateVideoByRecord">Generate Video(record 2s)</button>
 
   <script type="module" async>
-    import * as gif from 'modern-gif'
-    import mp4 from 'mp4box'
     import { createVcr } from './src'
 
     const dom = document.querySelector('#app')
 
     const videoVcr = await createVcr(dom, {
       debug: true,
-      scale: 2,
       type: 'mp4',
-      mp4,
-      interval: 800,
+      interval: 500,
     })
 
     const gifVcr = await createVcr(dom, {
       debug: true,
-      scale: 2,
       type: 'gif',
-      gif,
       interval: 500,
     })
 

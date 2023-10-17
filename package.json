@@ -67,6 +67,7 @@
     "conventional-changelog-cli": "^2.2.2",
     "eslint": "^8.34.0",
     "modern-gif": "^1.0.1",
+    "modern-mp4": "^0.0.3",
     "mp4box": "^0.5.2",
     "typescript": "^4.9.5",
     "vite": "^4.1.2",
@@ -74,5 +75,21 @@
   },
   "dependencies": {
     "modern-screenshot": "^4.4.20"
+  },
+  "peerDependencies": {
+    "modern-gif": "^1.*",
+    "modern-mp4": "^0.*",
+    "mp4box": "^0.*"
+  },
+  "peerDependenciesMeta": {
+    "modern-gif": {
+      "optional": true
+    },
+    "modern-mp4": {
+      "optional": true
+    },
+    "mp4box": {
+      "optional": true
+    }
   }
 }
