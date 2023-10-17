@@ -1,5 +1,5 @@
-import { EncoderOptions as GifEncoderOptions } from 'modern-gif'
-import { EncoderOptions as Mp4EncoderOptions } from 'modern-mp4'
+import type { EncoderOptions as GifEncoderOptions } from 'modern-gif'
+import type { EncoderOptions as Mp4EncoderOptions } from 'modern-mp4'
 
 export type GifOptions = Exclude<GifEncoderOptions, 'width' | 'height'>
 export type Mp4Options = Exclude<Mp4EncoderOptions, 'width' | 'height'>
